@@ -34,22 +34,22 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        float h = Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw(GameInput.HORIZONTAL_AXIS);
 
         if (!blocked) {
             if (h != 0) {
                 RotatePlayer(h);
                 isWallJumping = false;
             } else {
-                characterSwitching.currentPlayableCharacter.animator.SetBool("isRunning", false);
+                characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, false);
             }
 
             if (!isWallJumping) {
                 rb.velocity = new Vector2(speed * h, rb.velocity.y);
-                characterSwitching.currentPlayableCharacter.animator.SetBool("isRunning", h != 0);
+                characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, h != 0);
             }
         } else {
-            characterSwitching.currentPlayableCharacter.animator.SetBool("isRunning", false);
+            characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, false);
             if (isWallJumping) {
                 RotatePlayer(rb.velocity.x);
             }
@@ -69,8 +69,6 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (!isWallJumping && playerCollisions.touchingWallL) {
-            // transform.LookAt(2 * transform.position - playerCollisions.wallColliderL.transform.position);
-            // transform.localRotation = new Quaternion(0, transform.localRotation.y, 0, transform.localRotation.w);
             rb.velocity = new Vector2(rb.velocity.x, wallFrictionSpeed);
         }
 
@@ -103,17 +101,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void Teleport(Vector2 position) {
-        print("Starting the Teleport");
         blocked = true;
         isTeleporting = true;
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
-        // transform.position = position;
         teleportTarget = position;
     }
 
     public void StopTeleporting() {
-        print("Stopping the Teleport");
         isTeleporting = false;
         rb.isKinematic = false;
         blocked = false;
@@ -121,7 +116,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void CheckPlayerInput() {
-        if (Input.GetButtonDown("Jump") && remainingJumps > 0) {
+        if (Input.GetButtonDown(GameInput.JUMP_BUTTON) && remainingJumps > 0) {
             --remainingJumps;
 
             if (playerCollisions.touchingWallL && !playerCollisions.onGround) {
@@ -134,7 +129,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonUp("Jump") && !isFalling) {
+        if (Input.GetButtonUp(GameInput.JUMP_BUTTON) && !isFalling) {
             forceFall = true;
         }
     }

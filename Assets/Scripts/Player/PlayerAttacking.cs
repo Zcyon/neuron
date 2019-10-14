@@ -10,16 +10,16 @@ public class PlayerAttacking : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButtonDown("Attack")) {
+        if (Input.GetButtonDown(GameInput.ATTACK_BUTTON)) {
             characterSwitching.currentPlayableCharacter.Attack();
         }
 
-        if (Input.GetAxisRaw("SpecialAttackL") != 0 || Input.GetButtonDown("SpecialAttackL")) {
+        if (Input.GetAxisRaw(GameInput.SPECIAL_ATTACK_L_AXIS) != 0 || Input.GetButtonDown(GameInput.SPECIAL_ATTACK_L_BUTTON)) {
             characterSwitching.ActivateCharacter(CharacterPositions.LEFT);
             characterSwitching.currentPlayableCharacter.SpecialAttack();
         }
 
-        if (Input.GetAxisRaw("SpecialAttackR") != 0 || Input.GetButtonDown("SpecialAttackR")) {
+        if (Input.GetAxisRaw(GameInput.SPECIAL_ATTACK_R_AXIS) != 0 || Input.GetButtonDown(GameInput.SPECIAL_ATTACK_R_BUTTON)) {
             characterSwitching.ActivateCharacter(CharacterPositions.RIGHT);
             characterSwitching.currentPlayableCharacter.SpecialAttack();
         }
