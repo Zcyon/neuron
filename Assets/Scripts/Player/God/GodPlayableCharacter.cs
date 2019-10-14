@@ -7,14 +7,41 @@ public class GodPlayableCharacter : PlayableCharacter {
     public GameObject attackProjectile;
     public GameObject cannon;
     public GameObject specialAttackProjectile;
+    public GameObject staffModel;
+
+    private GameObject boomerangObject;
+
+    protected override void Update() {
+        base.Update();
+        if (boomerangObject) {
+            staffModel.SetActive(false);
+        } else {
+            staffModel.SetActive(true);
+        }
+    }
 
     public override void Attack() {
-        GameObject projectile = Instantiate(attackProjectile, cannon.transform.position, cannon.transform.rotation);
-        projectile.transform.parent = Director._Dynamic.transform;
-        Debug.Log("Implemented Attack() from God");
+        if (canAttack) {
+            canAttack = false;
+            attackCountdown = attackingProperties.attackCooldown;
+            Shoot(attackProjectile);
+        }
     }
 
     public override void SpecialAttack() {
-        Debug.Log("Implemented SpecialAttack() from God");
+        if (canSpecAttack) {
+            canSpecAttack = false;
+            specialAttackCountdown = attackingProperties.specAttackCooldown;
+            GameObject proj = Shoot(specialAttackProjectile);
+            Boomerang boomerang = proj.GetComponent<Boomerang>();
+            boomerang.returnPosition = transform;
+            boomerangObject = proj;
+        }
+    }
+
+    private GameObject Shoot(GameObject projectile) {
+        GameObject proj = Instantiate(projectile, cannon.transform.position, cannon.transform.rotation);
+        proj.transform.parent = Director._Dynamic.transform;
+        return proj;
     }
 }

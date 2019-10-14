@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Director : MonoBehaviour {
     public static GameObject _Dynamic;
-    // Start is called before the first frame update
+    public static PlayerMovement playerMovement;
+    public static GameObject playerObject;
+
     void Start() {
         _Dynamic = GameObject.Find("_Dynamic");
+        playerObject = GameObject.Find("Player");
+        if (playerObject) {
+            playerMovement = playerObject.GetComponent<PlayerMovement>();
+        }
     }
 }

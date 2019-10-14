@@ -14,15 +14,12 @@ public class PlayerAttacking : MonoBehaviour {
             characterSwitching.currentPlayableCharacter.Attack();
         }
 
-        print($"SpecialAttackL: {Input.GetAxisRaw("SpecialAttackL")}");
-        print($"SpecialAttackR: {Input.GetAxisRaw("SpecialAttackR")}");
-
-        if (Input.GetAxisRaw("SpecialAttackL") != 0) {
+        if (Input.GetAxisRaw("SpecialAttackL") != 0 || Input.GetButtonDown("SpecialAttackL")) {
             characterSwitching.ActivateCharacter(CharacterPositions.LEFT);
             characterSwitching.currentPlayableCharacter.SpecialAttack();
         }
 
-        if (Input.GetAxisRaw("SpecialAttackR") != 0) {
+        if (Input.GetAxisRaw("SpecialAttackR") != 0 || Input.GetButtonDown("SpecialAttackR")) {
             characterSwitching.ActivateCharacter(CharacterPositions.RIGHT);
             characterSwitching.currentPlayableCharacter.SpecialAttack();
         }

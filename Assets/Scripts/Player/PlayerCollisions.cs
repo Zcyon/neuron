@@ -13,13 +13,17 @@ public class PlayerCollisions : MonoBehaviour {
     public bool onGround;
     public bool touchingWallL;
     public bool touchingWallR;
+    public Collider2D wallColliderL;
+    public Collider2D wallColliderR;
     public GameObject feet;
     public GameObject handL;
     public GameObject handR;
     public float collisionRange;
 
-    void Start() {
+    private CharacterSwitching characterSwitching;
 
+    void Start() {
+        characterSwitching = GetComponent<CharacterSwitching>();
     }
 
     void Update() {
@@ -36,10 +40,12 @@ public class PlayerCollisions : MonoBehaviour {
 
         if (hit.collider && hit.collider.transform.tag == "Floor") {
             onGround = true;
+            characterSwitching.currentPlayableCharacter.animator.SetBool("isOnGround", onGround);
             return onGround;
         }
 
         onGround = false;
+        characterSwitching.currentPlayableCharacter.animator.SetBool("isOnGround", onGround);
         return onGround;
     }
 
@@ -51,14 +57,18 @@ public class PlayerCollisions : MonoBehaviour {
 
         if (hit.collider) {
             if (side == PlayerSides.LEFT) {
+                wallColliderL = hit.collider;
                 touchingWallL = true;
             } else if (side == PlayerSides.RIGHT) {
+                wallColliderR = hit.collider;
                 touchingWallR = true;
             }
         } else {
             if (side == PlayerSides.LEFT) {
+                wallColliderL = null;
                 touchingWallL = false;
             } else if (side == PlayerSides.RIGHT) {
+                wallColliderR = null;
                 touchingWallR = false;
             }
         }
