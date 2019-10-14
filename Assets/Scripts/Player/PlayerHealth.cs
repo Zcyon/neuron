@@ -14,10 +14,9 @@ public class PlayerHealth : MonoBehaviour {
 
     public void DamagePlayer(int damage) {
         health -= damage;
-        playerMovement.DamageBounce();
     }
 
     public void KnockoutPlayer() {
-        print($"Knocking out player");
+        playerMovement.DamageBounce();
     }
 }

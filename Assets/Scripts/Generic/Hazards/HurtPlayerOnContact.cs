@@ -8,11 +8,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == GameTags.PLAYER_TAG) {
-            PlayerHealth playerHealth = collider.gameObject.GetComponent<PlayerHealth>();
-            playerHealth.DamagePlayer(damage);
-            if (knockout) {
-                playerHealth.KnockoutPlayer();
-            }
+            Director.DamagePlayer(damage, knockout);
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+
+    public float coyoteTime;
     public float damageResponseCooldown;
     public float jumpSpeed;
     public float speed;
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool blocked;
     private CharacterSwitching characterSwitching;
+    private float coyoteCountdown;
     private bool forceFall;
     private bool isFalling;
     private bool isTeleporting;
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (!isWallJumping && playerCollisions.touchingWallL) {
+            // transform.right = playerCollisions.wallColliderL.transform.position - transform.position;
             rb.velocity = new Vector2(rb.velocity.x, wallFrictionSpeed);
         }
 
@@ -171,7 +175,7 @@ public class PlayerMovement : MonoBehaviour {
     private void ResolveRemainingJumps() {
         if (playerCollisions.onGround || playerCollisions.touchingWallL) {
             remainingJumps = maxJumps;
-        } else if (!isFalling) {
+        } else if (!isFalling && rb.velocity.y > 0) {
             remainingJumps = Mathf.Min(remainingJumps, maxJumps - 1);
         }
     }
@@ -185,4 +189,5 @@ public class PlayerMovement : MonoBehaviour {
             transform.localRotation.w
         );
     }
+
 }

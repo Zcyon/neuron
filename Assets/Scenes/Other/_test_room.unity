@@ -23983,7 +23983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682139600}
   m_Layer: 9
-  m_Name: Cannon
+  m_Name: CannonL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31820,6 +31820,7 @@ Transform:
   - {fileID: 1089064461}
   - {fileID: 147569164}
   - {fileID: 682139600}
+  - {fileID: 1663053494}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31903,6 +31904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e858f6d20470e54a90a88b48c7a814e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coyoteTime: 0.3
   damageResponseCooldown: 0.5
   jumpSpeed: 15
   speed: 7
@@ -56760,7 +56762,8 @@ MonoBehaviour:
   model: {fileID: 533729729}
   attackProjectile: {fileID: 1028443851224377522, guid: 15df48b23c7ba134cb2ad7b71b21996a,
     type: 3}
-  cannon: {fileID: 682139599}
+  cannonL: {fileID: 682139599}
+  cannonR: {fileID: 1663053493}
   specialAttackProjectile: {fileID: 4840595283554612058, guid: 2696e9f7e9d338340a5595014f69dc43,
     type: 3}
   staffModel: {fileID: 1995782392}
@@ -61245,6 +61248,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 713385246}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1663053493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663053494}
+  m_Layer: 9
+  m_Name: CannonR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663053494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663053493}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.7, y: -0.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 918058320}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1663629992
 PrefabInstance:
   m_ObjectHideFlags: 0

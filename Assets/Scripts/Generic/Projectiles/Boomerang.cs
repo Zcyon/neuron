@@ -32,6 +32,7 @@ public class Boomerang : MonoBehaviour {
             }
 
             if (isReturning) {
+                transform.right = returnPosition.position - transform.position;
                 transform.position = Vector2.MoveTowards(transform.position, returnPosition.position, speed * Time.deltaTime);
             }
         }
@@ -47,7 +48,7 @@ public class Boomerang : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (isEnabled && isReturning && collider.tag == GameTags.PLAYER_TAG) {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         } else if (!isReturning && collider.tag != GameTags.PLAYER_TAG) {
             StartReturn();
         }
@@ -55,7 +56,7 @@ public class Boomerang : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D collider) {
         if (isEnabled && isReturning && collider.tag == GameTags.PLAYER_TAG) {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 }

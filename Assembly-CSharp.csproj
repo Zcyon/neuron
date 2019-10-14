@@ -59,11 +59,11 @@
      <Compile Include="Assets\Scripts\Generic\Consts\GameTags.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\PlayableCharacterAP.cs" />
      <Compile Include="Assets\Scripts\Generic\Hazards\HurtPlayerOnContact.cs" />
-     <Compile Include="Assets\Scripts\Generic\Management\Director.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\Boomerang.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\Bullet.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\DestroyOnCollision.cs" />
      <Compile Include="Assets\Scripts\Generic\Singleton.cs" />
+     <Compile Include="Assets\Scripts\Management\Director.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterSwitching.cs" />
      <Compile Include="Assets\Scripts\Player\Girl\GirlPlayableCharacter.cs" />
      <Compile Include="Assets\Scripts\Player\God\GodPlayableCharacter.cs" />
