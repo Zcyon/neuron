@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Sandbox\Player.cs" />
+     <Compile Include="Assets\Sandbox\TestString.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameInput.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameLayers.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameTags.cs" />

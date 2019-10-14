@@ -6,7 +6,7 @@ public class SpecialAttackTeleportingBrake : MonoBehaviour {
     public GameObject parentObject;
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == GameTags.PLAYER_TAG) {
-            Director.playerMovement.StopTeleporting();
+            Director.Instance.playerMovement.StopTeleporting();
             Destroy(parentObject);
         }
     }

@@ -23,7 +23,7 @@ public class SpecialAttackTeleporting : MonoBehaviour {
         if (isEnabled && collider.tag == GameTags.FLOOR_TAG) {
             rb.velocity = Vector2.zero;
             coll.enabled = false;
-            Director.playerMovement.Teleport(playerTarget.transform.position + new Vector3(0, playerTarget.transform.localScale.y / 2f, 0));
+            Director.Instance.playerMovement.Teleport(playerTarget.transform.position + new Vector3(0, playerTarget.transform.localScale.y / 2f, 0));
             model.SetActive(false);
             boomerang.isEnabled = false;
         }

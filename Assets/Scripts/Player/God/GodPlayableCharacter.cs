@@ -49,7 +49,7 @@ public class GodPlayableCharacter : PlayableCharacter {
     private GameObject Shoot(GameObject projectile) {
         GameObject cannon = playerCollisions.touchingWallL ? cannonR : cannonL;
         GameObject proj = Instantiate(projectile, cannon.transform.position, cannon.transform.rotation);
-        proj.transform.parent = Director._Dynamic.transform;
+        proj.transform.parent = Director.Instance._Dynamic.transform;
         return proj;
     }
 }

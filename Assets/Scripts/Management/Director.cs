@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Director : Singleton<Director> {
-    public static GameObject _Dynamic;
-    public static PlayerMovement playerMovement;
-    public static PlayerHealth playerHealth;
-    public static GameObject playerObject;
+    public GameObject _Dynamic;
+    public PlayerMovement playerMovement;
+    public PlayerHealth playerHealth;
+    public GameObject playerObject;
+
+    private string testString;
 
     void Start() {
+        Scene scene = SceneManager.GetActiveScene();
+        print($"Starting Director. Test value: {testString} {scene.name}");
         LoadDirectorProps();
     }
 
-    public static void DamagePlayer(int damage, bool knockout) {
+    public void DamagePlayer(int damage, bool knockout) {
         playerHealth.DamagePlayer(damage);
         if (knockout) {
             playerHealth.KnockoutPlayer();
@@ -26,5 +31,10 @@ public class Director : Singleton<Director> {
             playerHealth = playerObject.GetComponent<PlayerHealth>();
             playerMovement = playerObject.GetComponent<PlayerMovement>();
         }
+    }
+
+    public void SetString() {
+        testString = "Some test value";
+        SceneManager.LoadScene("_test_room");
     }
 }
