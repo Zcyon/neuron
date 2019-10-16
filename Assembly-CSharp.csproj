@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Sandbox\Drip.cs" />
      <Compile Include="Assets\Sandbox\Player.cs" />
      <Compile Include="Assets\Sandbox\TestString.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameInput.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\Generic\Projectiles\Bullet.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\DestroyOnCollision.cs" />
      <Compile Include="Assets\Scripts\Generic\Singleton.cs" />
+     <Compile Include="Assets\Scripts\Generic\Utils\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Management\Director.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterSwitching.cs" />
      <Compile Include="Assets\Scripts\Player\Girl\GirlPlayableCharacter.cs" />

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - TeleportTarget
+  - Checkpoint
+  - Walls
   layers:
   - Default
   - TransparentFX

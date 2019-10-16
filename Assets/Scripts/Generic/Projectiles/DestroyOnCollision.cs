@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroyOnCollision : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
-        Destroy(gameObject);
+        if (collider.tag != GameTags.CHECKPOINT_TAG) {
+            Destroy(gameObject);
+        }
     }
 }

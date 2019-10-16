@@ -112,6 +112,10 @@ public class PlayerMovement : MonoBehaviour {
         teleportTarget = position;
     }
 
+    public void MovePlayer(Vector2 position) {
+        rb.velocity = Vector2.zero;
+        transform.position = position;
+    }
     public void StopTeleporting() {
         isTeleporting = false;
         rb.isKinematic = false;

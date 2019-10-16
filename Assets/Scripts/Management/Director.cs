@@ -8,20 +8,37 @@ public class Director : Singleton<Director> {
     public PlayerMovement playerMovement;
     public PlayerHealth playerHealth;
     public GameObject playerObject;
+    public Vector2 respawnPosition;
 
+    private bool isRespawning;
     private string testString;
 
     void Start() {
         Scene scene = SceneManager.GetActiveScene();
-        print($"Starting Director. Test value: {testString} {scene.name}");
         LoadDirectorProps();
     }
 
     public void DamagePlayer(int damage, bool knockout) {
         playerHealth.DamagePlayer(damage);
-        if (knockout) {
-            playerHealth.KnockoutPlayer();
+        playerHealth.KnockoutPlayer();
+        if (knockout && !isRespawning) {
+            StartCoroutine(RespawnPlayer(1));
         }
+    }
+
+    private IEnumerator RespawnPlayer(float timeout) {
+        isRespawning = true;
+        float respawnCountdown = timeout;
+
+        while (respawnCountdown > 0) {
+            respawnCountdown -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (respawnPosition != null) {
+            playerMovement.MovePlayer(respawnPosition);
+        }
+        isRespawning = false;
     }
 
     private void LoadDirectorProps() {

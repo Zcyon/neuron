@@ -36,9 +36,9 @@ public class PlayerCollisions : MonoBehaviour {
         Vector2 origin = feet.transform.position;
         Vector2 direction = Vector2.down;
         Vector2 size = new Vector2(Math.Abs(transform.localScale.x) / 3f, collisionRange);
-        RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0f, direction, collisionRange, 1 << LayerMask.NameToLayer(GameLayers.LEVEL_LAYER));
+        RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0f, direction, collisionRange);
 
-        if (hit.collider && hit.collider.transform.tag == GameTags.FLOOR_TAG) {
+        if (hit.collider && (hit.collider.transform.tag == GameTags.FLOOR_TAG || hit.collider.transform.tag == GameTags.WALLS_TAG)) {
             onGround = true;
             characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_ON_GROUND, onGround);
             return onGround;
