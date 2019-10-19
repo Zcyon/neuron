@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Sandbox\Crawler.cs" />
      <Compile Include="Assets\Sandbox\Drip.cs" />
      <Compile Include="Assets\Sandbox\Player.cs" />
      <Compile Include="Assets\Sandbox\TestString.cs" />
@@ -60,6 +61,7 @@
      <Compile Include="Assets\Scripts\Generic\Consts\GameLayers.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameTags.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\PlayableCharacterAP.cs" />
+     <Compile Include="Assets\Scripts\Generic\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Generic\Hazards\HurtPlayerOnContact.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\Boomerang.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\Bullet.cs" />
