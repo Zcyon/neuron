@@ -19,6 +19,7 @@ public class PlayerCollisions : MonoBehaviour {
     public GameObject handL;
     public GameObject handR;
     public float collisionRange;
+    public PlayerSFX playerSFX;
 
     private CharacterSwitching characterSwitching;
 
@@ -39,6 +40,9 @@ public class PlayerCollisions : MonoBehaviour {
         RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0f, direction, collisionRange);
 
         if (hit.collider && (hit.collider.transform.tag == GameTags.FLOOR_TAG || hit.collider.transform.tag == GameTags.WALLS_TAG)) {
+            if (onGround == false) {
+                playerSFX.PlayLandSFX();
+            }
             onGround = true;
             characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_ON_GROUND, onGround);
             return onGround;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public bool lookingUp;
+    public bool lookingDown;
     public float coyoteTime;
     public float damageResponseCooldown;
     public float jumpSpeed;
@@ -13,18 +15,24 @@ public class PlayerMovement : MonoBehaviour {
     public float wallJumpResponseCooldown;
     public int maxJumps;
     public int mapTileId;
+    public PlayerSFX playerSFX;
 
     private bool blocked;
     private CharacterSwitching characterSwitching;
     private float coyoteCountdown;
     private bool forceFall;
+    private bool isBeingKnockedBack;
     private bool isFalling;
+    private bool isSlowed = false;
     private bool isTeleporting;
     private bool isWallJumping;
     private bool jump;
     private bool wallJump;
     private int remainingJumps;
+    private int upKnockbackFactor = 10;
     private float damageResponseCountdown;
+    private float knockbackCountdown;
+    private float knockbackTimeout = 0.1f;
     private float wallJumpResponseCountdown;
     private PlayerCollisions playerCollisions;
     private Rigidbody2D rb;
@@ -39,32 +47,41 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate() {
         float h = Input.GetAxisRaw(GameInput.HORIZONTAL_AXIS);
 
-        if (!blocked) {
-            if (h != 0) {
-                RotatePlayer(h);
-                isWallJumping = false;
+        if (!isBeingKnockedBack) {
+            if (!blocked) {
+                if (h != 0) {
+                    RotatePlayer(h);
+                    isWallJumping = false;
+                } else {
+                    characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, false);
+                }
+
+                if (!isWallJumping) {
+                    rb.velocity = new Vector2(speed * h * (isSlowed ? 0.5f : 1f), rb.velocity.y);
+                    characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, h != 0);
+                }
             } else {
                 characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, false);
-            }
-
-            if (!isWallJumping) {
-                rb.velocity = new Vector2(speed * h, rb.velocity.y);
-                characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, h != 0);
-            }
-        } else {
-            characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_RUNNING, false);
-            if (isWallJumping) {
-                RotatePlayer(rb.velocity.x);
+                if (isWallJumping) {
+                    RotatePlayer(rb.velocity.x);
+                }
             }
         }
 
         if (jump && !blocked) {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            if (remainingJumps <= 0) {
+                playerSFX.PlaySecondJumpSFX();
+            } else {
+                playerSFX.PlayJumpSFX();
+            }
         } else if (wallJump) {
             Vector2 direction = transform.right * -1 + (transform.up * 2);
             rb.velocity = Vector2.zero;
             rb.velocity = direction.normalized * jumpSpeed;
             isWallJumping = true;
+            playerSFX.PlayJumpSFX();
+
         }
 
         if (forceFall) {
@@ -92,6 +109,13 @@ public class PlayerMovement : MonoBehaviour {
         if (isTeleporting) {
             transform.position = Vector2.MoveTowards(transform.position, teleportTarget, teleportSpeed * Time.deltaTime);
         }
+
+        if (knockbackCountdown > 0) {
+            knockbackCountdown -= Time.deltaTime;
+            if (knockbackCountdown <= 0) {
+                isBeingKnockedBack = false;
+            }
+        }
     }
 
     public void DamageBounce() {
@@ -104,6 +128,28 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    public void Knockback(float magnitude, Vector2 direction) {
+        if (direction.normalized == (Vector2) transform.up) {
+            rb.velocity = Vector2.zero;
+            magnitude *= upKnockbackFactor;
+            remainingJumps = 1;
+        }
+        rb.AddForce(magnitude * direction.normalized);
+        isBeingKnockedBack = true;
+        knockbackCountdown = knockbackTimeout;
+    }
+
+    public void MovePlayer(Vector2 position) {
+        rb.velocity = Vector2.zero;
+        transform.position = position;
+    }
+
+    public void SetSlowState(bool slowed) {
+        if (slowed != isSlowed) {
+            isSlowed = slowed;
+        }
+    }
+
     public void Teleport(Vector2 position) {
         blocked = true;
         isTeleporting = true;
@@ -112,10 +158,6 @@ public class PlayerMovement : MonoBehaviour {
         teleportTarget = position;
     }
 
-    public void MovePlayer(Vector2 position) {
-        rb.velocity = Vector2.zero;
-        transform.position = position;
-    }
     public void StopTeleporting() {
         isTeleporting = false;
         rb.isKinematic = false;
@@ -139,6 +181,17 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonUp(GameInput.JUMP_BUTTON) && !isFalling) {
             forceFall = true;
+        }
+
+        if (Input.GetAxis(GameInput.VERTICAL_AXIS) == 1) {
+            lookingUp = true;
+            lookingDown = false;
+        } else if (Input.GetAxis(GameInput.VERTICAL_AXIS) == -1) {
+            lookingDown = true;
+            lookingUp = false;
+        } else {
+            lookingUp = false;
+            lookingDown = false;
         }
     }
 

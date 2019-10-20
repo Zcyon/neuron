@@ -8,6 +8,10 @@ TagManager:
   - TeleportTarget
   - Checkpoint
   - Walls
+  - Enemy
+  - Hazard
+  - FloorHazard
+  - HittableHazard
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - 
   - Level
   - Player
-  - 
+  - Enemies
   - 
   - 
   - 

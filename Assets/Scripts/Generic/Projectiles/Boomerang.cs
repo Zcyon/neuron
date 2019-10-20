@@ -49,7 +49,10 @@ public class Boomerang : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         if (isEnabled && isReturning && collider.tag == GameTags.PLAYER_TAG) {
             Destroy(gameObject.transform.parent.gameObject);
-        } else if (!isReturning && collider.tag != GameTags.PLAYER_TAG && collider.tag != GameTags.CHECKPOINT_TAG) {
+        } else if (!isReturning
+            && collider.tag != GameTags.PLAYER_TAG
+            && collider.tag != GameTags.CHECKPOINT_TAG
+            && collider.tag != GameTags.FLOOR_HAZARD) {
             StartReturn();
         }
     }

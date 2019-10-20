@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5606690684246691837}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BottomFoot
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 5606690684281088253}
   - component: {fileID: 1790350352447194286}
   - component: {fileID: 8747350457046508393}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CrawlerR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13190d5c3936c59438821a4a8c371319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStunned: 0
+  health: 2
   movingRight: 1
   collisionRange: 0.05
   rotationCooldown: 1
@@ -183,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5606690684347653404}
   - component: {fileID: 5606690684347653403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5606690684371383221}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}

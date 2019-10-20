@@ -53,10 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Sandbox\Crawler.cs" />
-     <Compile Include="Assets\Sandbox\Drip.cs" />
      <Compile Include="Assets\Sandbox\Player.cs" />
+     <Compile Include="Assets\Sandbox\SlowPlayerOnCollision.cs" />
      <Compile Include="Assets\Sandbox\TestString.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Crawler\Crawler.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameInput.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameLayers.cs" />
      <Compile Include="Assets\Scripts\Generic\Consts\GameTags.cs" />
@@ -66,17 +66,22 @@
      <Compile Include="Assets\Scripts\Generic\Projectiles\Boomerang.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\Bullet.cs" />
      <Compile Include="Assets\Scripts\Generic\Projectiles\DestroyOnCollision.cs" />
+     <Compile Include="Assets\Scripts\Generic\Projectiles\HurtEnemyOnCollision.cs" />
      <Compile Include="Assets\Scripts\Generic\Singleton.cs" />
      <Compile Include="Assets\Scripts\Generic\Utils\Checkpoint.cs" />
+     <Compile Include="Assets\Scripts\Hazards\Drip\Drip.cs" />
      <Compile Include="Assets\Scripts\Management\Director.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterSwitching.cs" />
      <Compile Include="Assets\Scripts\Player\Girl\GirlPlayableCharacter.cs" />
+     <Compile Include="Assets\Scripts\Player\Girl\KnockbackPlayerOnCollision.cs" />
      <Compile Include="Assets\Scripts\Player\God\GodPlayableCharacter.cs" />
      <Compile Include="Assets\Scripts\Player\PlayableCharacter.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerAnimationEvents.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAttacking.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCollisions.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerSFX.cs" />
      <Compile Include="Assets\Scripts\Player\SpecialAttackTeleporting.cs" />
      <Compile Include="Assets\Scripts\Player\SpecialAttackTeleportingBrake.cs" />
  <Reference Include="Unity.Timeline.Editor">
