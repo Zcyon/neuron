@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameLayers {
     public const string ENEMIES_LAYER = "Enemies";
     public const string LEVEL_LAYER = "Level";
+    public const string PLAYER_LAYER = "Player";
 }

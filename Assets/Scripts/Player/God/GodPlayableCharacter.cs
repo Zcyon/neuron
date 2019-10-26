@@ -32,6 +32,7 @@ public class GodPlayableCharacter : PlayableCharacter {
             canAttack = false;
             attackCountdown = attackingProperties.attackCooldown;
             Shoot(attackProjectile);
+            playerSFX.PlayGodAttackSFX();
         }
     }
 
@@ -43,6 +44,7 @@ public class GodPlayableCharacter : PlayableCharacter {
             Boomerang boomerang = proj.GetComponentInChildren<Boomerang>();
             boomerang.returnPosition = transform;
             boomerangObject = proj;
+            playerSFX.PlayGodSpecAttackSFX();
         }
     }
 

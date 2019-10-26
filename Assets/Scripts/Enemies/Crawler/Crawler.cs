@@ -67,20 +67,11 @@ public class Crawler : Enemy {
 
         if (bottomCollision) {
             if (rightCollision) {
-                print("Minus");
-                // if (movingRight) {
                 --rotationIndex;
-                // } else {
-                //     ++rotationIndex;
-                // }
                 rotationCountdown = rotationCooldown;
             }
         } else {
-            // if (movingRight) {
             ++rotationIndex;
-            // } else {
-            //     --rotationIndex;
-            // }
             rotationCountdown = rotationCooldown;
         }
 

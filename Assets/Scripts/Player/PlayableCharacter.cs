@@ -13,6 +13,7 @@ public class PlayableCharacter : MonoBehaviour {
     public Animator animator;
     public AttackingProperties attackingProperties;
     public GameObject model;
+    public PlayerSFX playerSFX;
 
     protected bool canAttack;
     protected bool canSpecAttack;

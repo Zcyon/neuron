@@ -27,9 +27,6 @@ public class HurtEnemyOnCollision : MonoBehaviour {
             Vector2 direction = ((Vector2) collider.transform.position - origin).normalized;
             RaycastHit2D hit = Physics2D.Raycast(origin, direction, 10, 1 << LayerMask.NameToLayer(GameLayers.ENEMIES_LAYER));
             Enemy enemy = collider.gameObject.GetComponent<Enemy>();
-            if (hit.collider) {
-                print($"{hit.collider.transform.name}");
-            }
 
             if (hit.collider && hit.collider.tag == GameTags.ENEMY_TAG) {
                 enemy.DamageEnemy(damage, stunDuration);

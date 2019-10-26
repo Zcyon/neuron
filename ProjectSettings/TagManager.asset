@@ -49,3 +49,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Reflections
+    uniqueID: 1812557685
+    locked: 0
+  - name: BackProps
+    uniqueID: 2605050249
+    locked: 0
+  - name: Player
+    uniqueID: 457627691
+    locked: 0
+  - name: Props
+    uniqueID: 2275291649
+    locked: 0
+  - name: Foreground
+    uniqueID: 223886179
+    locked: 0

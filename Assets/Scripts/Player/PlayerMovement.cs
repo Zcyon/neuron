@@ -238,13 +238,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void RotatePlayer(float x) {
-        int roundedRotation = Mathf.RoundToInt(x);
-        transform.localRotation = new Quaternion(
-            0,
-            roundedRotation != 0 ? roundedRotation > 0 ? 0 : -180 : transform.localRotation.y,
-            0,
-            transform.localRotation.w
-        );
+        if (x > 0) {
+            transform.localRotation = new Quaternion(0, 0, 0, transform.localRotation.w);
+        } else if (x < 0) {
+            transform.localRotation = new Quaternion(0, -180, 0, transform.localRotation.w);
+        }
     }
 
 }

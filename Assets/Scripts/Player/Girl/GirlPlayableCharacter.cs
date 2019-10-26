@@ -30,5 +30,6 @@ public class GirlPlayableCharacter : PlayableCharacter {
     private void Swipe(GameObject sword, Transform origin) {
         GameObject swordInstance = Instantiate(sword, origin.position, origin.rotation);
         swordInstance.transform.parent = origin.transform;
+        playerSFX.PlayGirlAttackSFX();
     }
 }
