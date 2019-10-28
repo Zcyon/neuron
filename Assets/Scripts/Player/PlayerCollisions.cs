@@ -44,12 +44,16 @@ public class PlayerCollisions : MonoBehaviour {
                 playerSFX.PlayLandSFX();
             }
             onGround = true;
-            characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_ON_GROUND, onGround);
+            if (characterSwitching.currentPlayableCharacter.animator) {
+                characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_ON_GROUND, onGround);
+            }
             return onGround;
         }
 
         onGround = false;
-        characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_ON_GROUND, onGround);
+        if (characterSwitching.currentPlayableCharacter.animator) {
+            characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_ON_GROUND, onGround);
+        }
         return onGround;
     }
 

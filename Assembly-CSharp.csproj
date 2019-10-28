@@ -76,6 +76,8 @@
      <Compile Include="Assets\Scripts\Generic\Utils\Portal.cs" />
      <Compile Include="Assets\Scripts\Hazards\Drip\Drip.cs" />
      <Compile Include="Assets\Scripts\Management\Director.cs" />
+     <Compile Include="Assets\Scripts\Management\Init.cs" />
+     <Compile Include="Assets\Scripts\Management\PlayerPositioning.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterSwitching.cs" />
      <Compile Include="Assets\Scripts\Player\Girl\GirlPlayableCharacter.cs" />
      <Compile Include="Assets\Scripts\Player\Girl\KnockbackPlayerOnCollision.cs" />

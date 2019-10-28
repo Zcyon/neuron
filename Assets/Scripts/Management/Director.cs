@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Director : Singleton<Director> {
     public GameObject _Dynamic;
+    public GameObject playerObject;
     public PlayerMovement playerMovement;
     public PlayerHealth playerHealth;
-    public GameObject playerObject;
+    [HideInInspector] public string sceneTransitionPlayerTarget;
+    [HideInInspector] public string sceneTransitionPlayerEffect;
     public Vector2 respawnPosition;
 
     private bool isRespawning;
@@ -18,12 +20,20 @@ public class Director : Singleton<Director> {
         LoadDirectorProps();
     }
 
+    void Update() { }
+
     public void DamagePlayer(int damage, bool knockout) {
         playerHealth.DamagePlayer(damage);
         playerHealth.KnockoutPlayer();
         if (knockout && !isRespawning) {
             StartCoroutine(RespawnPlayer(1));
         }
+    }
+
+    public void GoToScene(string name, string targetObject, string entranceMode) {
+        SceneManager.LoadScene(name);
+        sceneTransitionPlayerTarget = targetObject;
+        sceneTransitionPlayerEffect = entranceMode;
     }
 
     private IEnumerator RespawnPlayer(float timeout) {
@@ -41,7 +51,7 @@ public class Director : Singleton<Director> {
         isRespawning = false;
     }
 
-    private void LoadDirectorProps() {
+    public void LoadDirectorProps() {
         _Dynamic = GameObject.Find("_Dynamic");
         playerObject = GameObject.Find("Player");
         if (playerObject) {

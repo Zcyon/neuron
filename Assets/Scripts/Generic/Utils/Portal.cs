@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Portal : MonoBehaviour {
+    public Transform spawnPosition;
+    [SerializeField] private string targetScene = "";
+    [SerializeField] private string targetElement = "";
+    [SerializeField] private string entranceMode = "";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.tag == "Player") {
+            if (Director.Instance) {
+                Director.Instance.GoToScene(targetScene, targetElement, entranceMode);
+            } else {
+                print("Director instance is null!");
+            }
+        }
     }
 }

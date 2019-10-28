@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/_Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Other/_test_room_sz_top.unity
+    path: Assets/_Scenes/Other/_test_room_sz_top.unity
     guid: 8e72e71cee5fe4449bba5d47430a1799
   - enabled: 1
-    path: Assets/Scenes/Other/_test_room.unity
+    path: Assets/_Scenes/Other/_test_room.unity
     guid: 566353d851a2c3647bb5261048e9c942
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_10.unity
+    guid: 62e9a1e728ef97b4d8aebd8f3122da26
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_11.unity
+    guid: 064737344fe602a4d894535b62c5e13e
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_22.unity
+    guid: d077efbebdb1a1941ae629fd07f78f42
   m_configObjects: {}

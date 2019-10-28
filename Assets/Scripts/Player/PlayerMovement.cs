@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour {
     private bool blocked;
     private CharacterSwitching characterSwitching;
     private float coyoteCountdown;
+    private float enterLevelCooldown = 1f;
+    private float enterLevelCountdown;
     private bool forceFall;
     private bool isBeingKnockedBack;
+    private bool isEnteringLevel;
     private bool isFalling;
     private bool isSlowed = false;
     private bool isTeleporting;
@@ -45,6 +48,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if (isEnteringLevel) {
+            return;
+        }
+
         float h = Input.GetAxisRaw(GameInput.HORIZONTAL_AXIS);
 
         if (!isBeingKnockedBack) {
@@ -99,6 +106,15 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
+
+        if (enterLevelCountdown > 0) {
+            enterLevelCountdown -= Time.deltaTime;
+            if (enterLevelCountdown <= 0 || playerCollisions.onGround) {
+                isEnteringLevel = false;
+            }
+            return;
+        }
+
         ResolveFallingStatus();
         ResolveRemainingJumps();
         CheckPlayerInput();
@@ -219,6 +235,13 @@ public class PlayerMovement : MonoBehaviour {
         if (playerCollisions.onGround) {
             isWallJumping = false;
         }
+    }
+
+    public void EnterLevelJump(Vector2 direction) {
+        isEnteringLevel = true;
+        enterLevelCountdown = enterLevelCooldown;
+        rb.velocity = Vector2.zero;
+        rb.velocity = direction.normalized * jumpSpeed;
     }
 
     private void ResolveFallingStatus() {
