@@ -15,12 +15,21 @@ EditorBuildSettings:
     path: Assets/_Scenes/Other/_test_room.unity
     guid: 566353d851a2c3647bb5261048e9c942
   - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_02.unity
+    guid: b5f6f6a515769a84e854d884c6fe092f
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_sz_03.unity
+    guid: c5dbb6d177c429747b45a6f242d15df0
+  - enabled: 1
     path: Assets/_Scenes/Levels/Meat/meat_10.unity
     guid: 62e9a1e728ef97b4d8aebd8f3122da26
   - enabled: 1
     path: Assets/_Scenes/Levels/Meat/meat_11.unity
     guid: 064737344fe602a4d894535b62c5e13e
   - enabled: 1
-    path: Assets/_Scenes/Levels/Meat/meat_22.unity
+    path: Assets/_Scenes/Levels/Meat/meat_12.unity
+    guid: a441de960b35b8641a73656189eefff0
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_21.unity
     guid: d077efbebdb1a1941ae629fd07f78f42
   m_configObjects: {}

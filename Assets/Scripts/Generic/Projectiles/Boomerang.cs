@@ -52,7 +52,8 @@ public class Boomerang : MonoBehaviour {
         } else if (!isReturning
             && collider.tag != GameTags.PLAYER_TAG
             && collider.tag != GameTags.CHECKPOINT_TAG
-            && collider.tag != GameTags.FLOOR_HAZARD) {
+            && collider.tag != GameTags.FLOOR_HAZARD
+            && collider.tag != GameTags.WORLD_TAG) {
             StartReturn();
         }
     }

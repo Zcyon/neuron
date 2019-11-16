@@ -13,20 +13,38 @@ public class PlayableCharacter : MonoBehaviour {
     public Animator animator;
     public AttackingProperties attackingProperties;
     public GameObject model;
+    public PlayerCollisions playerCollisions;
     public PlayerSFX playerSFX;
 
-    protected bool canAttack;
-    protected bool canSpecAttack;
+    public bool canAttack;
+    public bool canSpecAttack;
     protected float attackCountdown;
     protected float specialAttackCountdown;
 
-    protected virtual void Start() {
+    void Awake() {
         canAttack = true;
         canSpecAttack = true;
         animator = model.GetComponent<Animator>();
+        playerCollisions = transform.parent.GetComponent<PlayerCollisions>();
     }
 
-    protected virtual void Update() {
+    protected virtual void _Update() { }
+
+    protected virtual void _Start() { }
+
+    public virtual void Attack() {
+        Debug.Log("Unimplemented Attack()");
+    }
+
+    public virtual void SpecialAttack() {
+        Debug.Log("Unimplemented SpecialAttack()");
+    }
+
+    private void Start() {
+        _Start();
+    }
+
+    private void Update() {
         if (attackCountdown > 0) {
             attackCountdown -= Time.deltaTime;
             if (attackCountdown <= 0) {
@@ -40,13 +58,7 @@ public class PlayableCharacter : MonoBehaviour {
                 canSpecAttack = true;
             }
         }
-    }
 
-    public virtual void Attack() {
-        Debug.Log("Unimplemented Attack()");
-    }
-
-    public virtual void SpecialAttack() {
-        Debug.Log("Unimplemented SpecialAttack()");
+        _Update();
     }
 }

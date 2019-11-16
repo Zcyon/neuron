@@ -10,9 +10,11 @@ public class Director : Singleton<Director> {
     public PlayerHealth playerHealth;
     [HideInInspector] public string sceneTransitionPlayerTarget;
     [HideInInspector] public string sceneTransitionPlayerEffect;
+    public UIManager ui;
     public Vector2 respawnPosition;
 
     private bool isRespawning;
+    private float sceneTransitionTimeout = 0.5f;
     private string testString;
 
     void Start() {
@@ -31,9 +33,8 @@ public class Director : Singleton<Director> {
     }
 
     public void GoToScene(string name, string targetObject, string entranceMode) {
-        SceneManager.LoadScene(name);
-        sceneTransitionPlayerTarget = targetObject;
-        sceneTransitionPlayerEffect = entranceMode;
+        ui.FadeOut();
+        StartCoroutine(TransitionPlayer(name, targetObject, entranceMode));
     }
 
     private IEnumerator RespawnPlayer(float timeout) {
@@ -51,12 +52,27 @@ public class Director : Singleton<Director> {
         isRespawning = false;
     }
 
+    private IEnumerator TransitionPlayer(string name, string targetObject, string entranceMode) {
+        float time = 0f;
+        while (time < sceneTransitionTimeout) {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        SceneManager.LoadScene(name);
+        sceneTransitionPlayerTarget = targetObject;
+        sceneTransitionPlayerEffect = entranceMode;
+    }
+
     public void LoadDirectorProps() {
         _Dynamic = GameObject.Find("_Dynamic");
         playerObject = GameObject.Find("Player");
         if (playerObject) {
             playerHealth = playerObject.GetComponent<PlayerHealth>();
             playerMovement = playerObject.GetComponent<PlayerMovement>();
+        }
+        GameObject guiObject = GameObject.Find("GUI");
+        if (guiObject) {
+            ui = guiObject.GetComponent<UIManager>();
         }
     }
 

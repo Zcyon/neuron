@@ -5,6 +5,8 @@
 /// e.g. public class MyClassName : Singleton<MyClassName> {}
 /// </summary>
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
+
+    protected static GameObject singletonObject;
     // Check to see if we're about to be destroyed.
     private static bool m_ShuttingDown = false;
     private static object m_Lock = new object();
@@ -29,7 +31,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
                     // Create new instance if one doesn't already exist.
                     if (m_Instance == null) {
                         // Need to create a new GameObject to attach the singleton to.
-                        var singletonObject = new GameObject();
+                        singletonObject = new GameObject();
                         m_Instance = singletonObject.AddComponent<T>();
                         singletonObject.name = typeof(T).ToString() + " (Singleton)";
 

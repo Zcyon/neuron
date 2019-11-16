@@ -5,7 +5,6 @@ using UnityEngine;
 public class GirlPlayableCharacter : PlayableCharacter {
 
     public GameObject attackSword;
-    public PlayerCollisions playerCollisions;
     public PlayerMovement playerMovement;
     public Transform cannonB;
     public Transform cannonL;

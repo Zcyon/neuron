@@ -12,6 +12,7 @@ TagManager:
   - Hazard
   - FloorHazard
   - HittableHazard
+  - World
   layers:
   - Default
   - TransparentFX

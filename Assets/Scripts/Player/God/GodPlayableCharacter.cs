@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class GodPlayableCharacter : PlayableCharacter {
 
+    public Animator staffAnimator;
     public GameObject attackProjectile;
     public GameObject cannonL;
     public GameObject cannonR;
     public GameObject specialAttackProjectile;
     public GameObject staffModel;
 
+    private float attackAnimationCooldown = 1f;
+    private float attackAnimationCountdown;
     private GameObject boomerangObject;
-    private PlayerCollisions playerCollisions;
 
-    protected override void Start() {
-        base.Start();
-        playerCollisions = transform.parent.GetComponent<PlayerCollisions>();
-    }
-
-    protected override void Update() {
-        base.Update();
+    protected override void _Update() {
         if (boomerangObject) {
             staffModel.SetActive(false);
         } else {
             staffModel.SetActive(true);
+        }
+
+        if (attackAnimationCountdown > 0) {
+            attackAnimationCountdown -= Time.deltaTime;
+            if (attackAnimationCountdown <= 0) {
+                staffAnimator.SetBool("isAttacking", false);
+            }
         }
     }
 
@@ -31,8 +34,10 @@ public class GodPlayableCharacter : PlayableCharacter {
         if (canAttack) {
             canAttack = false;
             attackCountdown = attackingProperties.attackCooldown;
+            attackAnimationCountdown = attackAnimationCooldown;
             Shoot(attackProjectile);
             playerSFX.PlayGodAttackSFX();
+            staffAnimator.SetBool("isAttacking", true);
         }
     }
 

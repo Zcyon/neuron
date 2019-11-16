@@ -31,6 +31,7 @@ public class PlayerCollisions : MonoBehaviour {
         CheckGroundCollision();
         CheckWallCollisions(handL, PlayerSides.LEFT);
         CheckWallCollisions(handR, PlayerSides.RIGHT);
+        UpdateAnimatorState();
     }
 
     private bool CheckGroundCollision() {
@@ -80,5 +81,9 @@ public class PlayerCollisions : MonoBehaviour {
                 touchingWallR = false;
             }
         }
+    }
+
+    private void UpdateAnimatorState() {
+        characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_TOUCHING_WALL, touchingWallL || touchingWallR);
     }
 }

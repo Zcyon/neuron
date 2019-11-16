@@ -77,18 +77,19 @@ public class PlayerMovement : MonoBehaviour {
 
         if (jump && !blocked) {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            characterSwitching.currentPlayableCharacter.animator.SetTrigger(PlayableCharacterAP.JUMP);
             if (remainingJumps <= 0) {
                 playerSFX.PlaySecondJumpSFX();
             } else {
                 playerSFX.PlayJumpSFX();
             }
         } else if (wallJump) {
+            characterSwitching.currentPlayableCharacter.animator.SetTrigger(PlayableCharacterAP.JUMP);
             Vector2 direction = transform.right * -1 + (transform.up * 2);
             rb.velocity = Vector2.zero;
             rb.velocity = direction.normalized * jumpSpeed;
             isWallJumping = true;
             playerSFX.PlayJumpSFX();
-
         }
 
         if (forceFall) {
@@ -132,6 +133,8 @@ public class PlayerMovement : MonoBehaviour {
                 isBeingKnockedBack = false;
             }
         }
+
+        UpdateAnimatorState();
     }
 
     public void DamageBounce() {
@@ -268,4 +271,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void UpdateAnimatorState() {
+        characterSwitching.currentPlayableCharacter.animator.SetBool(PlayableCharacterAP.IS_FALLING, isFalling);
+    }
 }

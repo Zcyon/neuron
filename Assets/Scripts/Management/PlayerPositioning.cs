@@ -16,6 +16,12 @@ public class PlayerPositioning : MonoBehaviour {
             yield return null;
         }
         PlacePlayer();
+        frames = 0;
+        while (frames < frameAmount) {
+            ++frames;
+            yield return null;
+        }
+        Director.Instance.ui.FadeIn();
     }
 
     private void PlacePlayer() {
@@ -31,7 +37,6 @@ public class PlayerPositioning : MonoBehaviour {
                     PlayEffect(sceneTransitionPlayerEffect, portal.spawnPosition);
                 }
             }
-
             Director.Instance.sceneTransitionPlayerTarget = null;
         }
     }

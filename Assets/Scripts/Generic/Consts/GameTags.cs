@@ -11,4 +11,5 @@ public class GameTags {
     public const string FLOOR_TAG = "Floor";
     public const string PLAYER_TAG = "Player";
     public const string WALLS_TAG = "Walls";
+    public const string WORLD_TAG = "World";
 }
