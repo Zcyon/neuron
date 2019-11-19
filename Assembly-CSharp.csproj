@@ -72,13 +72,16 @@
      <Compile Include="Assets\Scripts\Generic\Projectiles\HurtEnemyOnCollision.cs" />
      <Compile Include="Assets\Scripts\Generic\Singleton.cs" />
      <Compile Include="Assets\Scripts\Generic\Utils\Checkpoint.cs" />
+     <Compile Include="Assets\Scripts\Generic\Utils\Interactable.cs" />
      <Compile Include="Assets\Scripts\Generic\Utils\Parallax.cs" />
      <Compile Include="Assets\Scripts\Generic\Utils\Portal.cs" />
+     <Compile Include="Assets\Scripts\Generic\Utils\SavePoint.cs" />
      <Compile Include="Assets\Scripts\Hazards\Drip\Drip.cs" />
      <Compile Include="Assets\Scripts\Management\BGMManager.cs" />
      <Compile Include="Assets\Scripts\Management\Director.cs" />
      <Compile Include="Assets\Scripts\Management\Init.cs" />
      <Compile Include="Assets\Scripts\Management\PlayerPositioning.cs" />
+     <Compile Include="Assets\Scripts\Management\UIHUD.cs" />
      <Compile Include="Assets\Scripts\Management\UIManager.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterSwitching.cs" />
      <Compile Include="Assets\Scripts\Player\Girl\GirlPlayableCharacter.cs" />

@@ -39,6 +39,7 @@ public class ChasePlayer : MonoBehaviour {
 
     void OnEnable() {
         chaseCountdown = chaseTimeout;
+        target = Director.Instance.playerObject.transform;
     }
 
     private void Relocate() {

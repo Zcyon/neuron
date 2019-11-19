@@ -76,6 +76,8 @@ public class Director : Singleton<Director> {
         }
     }
 
+    public void SaveGame(bool playAnimation = false) { }
+
     public void SetString() {
         testString = "Some test value";
         SceneManager.LoadScene("_test_room");

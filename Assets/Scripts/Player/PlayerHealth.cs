@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
-    public int health;
+    [HideInInspector] public int health;
     public int maxHealth;
 
     private PlayerMovement playerMovement;
 
     void Start() {
+        health = maxHealth;
         playerMovement = GetComponent<PlayerMovement>();
     }
 
