@@ -37,7 +37,7 @@ public class PlayerPositioning : MonoBehaviour {
                     PlayEffect(sceneTransitionPlayerEffect, portal.spawnPosition);
                 }
             }
-            Director.Instance.sceneTransitionPlayerTarget = null;
+            // Director.Instance.sceneTransitionPlayerTarget = null;s
         }
     }
 

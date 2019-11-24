@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 6157847399288807584}
   - component: {fileID: 6157847399288807585}
   - component: {fileID: 6157847399288807598}
+  - component: {fileID: 6151648568264192811}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -714,6 +715,18 @@ MonoBehaviour:
     jumpSFX: {fileID: 8300000, guid: 53a2d1e902e4da34a8fd9932e07c61b2, type: 3}
     landSFX: {fileID: 8300000, guid: a363655eace055548ac0ea553851483c, type: 3}
     secondJumpSFX: {fileID: 8300000, guid: aa38e27cff0b5834b8c927f68286dbf2, type: 3}
+--- !u!114 &6151648568264192811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6157847399288807608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0ad204d2e89554c9f749a6bf3fd268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5761869889306229387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1010,11 +1023,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LokiStaff
       objectReference: {fileID: 0}
-    - target: {fileID: 7629201662550815532, guid: b68402b0bdf55a44ea2dc0b4ced2f6ad,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b1a8e70af097c55488b97ce2c08bb9f4, type: 2}
     - target: {fileID: -1833614439903222819, guid: b68402b0bdf55a44ea2dc0b4ced2f6ad,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1035,6 +1043,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7629201662550815532, guid: b68402b0bdf55a44ea2dc0b4ced2f6ad,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1a8e70af097c55488b97ce2c08bb9f4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 6437531721940673314, guid: b68402b0bdf55a44ea2dc0b4ced2f6ad,
     type: 3}

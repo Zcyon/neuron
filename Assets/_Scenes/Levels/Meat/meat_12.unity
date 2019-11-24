@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6980,6 +6980,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130234443}
     m_Modifications:
+    - target: {fileID: 5606690684281088225, guid: e677f0cb7020c93478f2f1c59eed8160,
+        type: 3}
+      propertyPath: m_Name
+      value: CrawlerR
+      objectReference: {fileID: 0}
     - target: {fileID: 5606690684281088224, guid: e677f0cb7020c93478f2f1c59eed8160,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7035,11 +7040,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5606690684281088225, guid: e677f0cb7020c93478f2f1c59eed8160,
-        type: 3}
-      propertyPath: m_Name
-      value: CrawlerR
-      objectReference: {fileID: 0}
     - target: {fileID: 5606690684347653403, guid: e677f0cb7020c93478f2f1c59eed8160,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7058,6 +7058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5912252179427103770, guid: a873c9d0f343288409bbbde18dcd20b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5912252179427103771, guid: a873c9d0f343288409bbbde18dcd20b2,
         type: 3}
@@ -7823,8 +7828,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 28, y: 7}
-      - {x: -4, y: 7}
-      - {x: -4, y: -11}
+      - {x: -3, y: 7}
+      - {x: -3, y: -11}
       - {x: 28, y: -11}
 --- !u!50 &748657525
 Rigidbody2D:
@@ -10892,6 +10897,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130234443}
     m_Modifications:
+    - target: {fileID: 3493626749003852370, guid: 5e119cd2296f02c43a5a085ea0d59dec,
+        type: 3}
+      propertyPath: m_Name
+      value: CrawlerL
+      objectReference: {fileID: 0}
     - target: {fileID: 3493626749003852371, guid: 5e119cd2296f02c43a5a085ea0d59dec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10946,11 +10956,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3493626749003852370, guid: 5e119cd2296f02c43a5a085ea0d59dec,
-        type: 3}
-      propertyPath: m_Name
-      value: CrawlerL
       objectReference: {fileID: 0}
     - target: {fileID: 3493626749071466408, guid: 5e119cd2296f02c43a5a085ea0d59dec,
         type: 3}
@@ -11514,6 +11519,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130234443}
     m_Modifications:
+    - target: {fileID: 3493626749003852370, guid: 5e119cd2296f02c43a5a085ea0d59dec,
+        type: 3}
+      propertyPath: m_Name
+      value: CrawlerL
+      objectReference: {fileID: 0}
     - target: {fileID: 3493626749003852371, guid: 5e119cd2296f02c43a5a085ea0d59dec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11568,11 +11578,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3493626749003852370, guid: 5e119cd2296f02c43a5a085ea0d59dec,
-        type: 3}
-      propertyPath: m_Name
-      value: CrawlerL
       objectReference: {fileID: 0}
     - target: {fileID: 3493626749071466408, guid: 5e119cd2296f02c43a5a085ea0d59dec,
         type: 3}
@@ -11743,6 +11748,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130234443}
     m_Modifications:
+    - target: {fileID: 5606690684281088225, guid: e677f0cb7020c93478f2f1c59eed8160,
+        type: 3}
+      propertyPath: m_Name
+      value: Crawler
+      objectReference: {fileID: 0}
     - target: {fileID: 5606690684281088224, guid: e677f0cb7020c93478f2f1c59eed8160,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11797,11 +11807,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606690684281088225, guid: e677f0cb7020c93478f2f1c59eed8160,
-        type: 3}
-      propertyPath: m_Name
-      value: Crawler
       objectReference: {fileID: 0}
     - target: {fileID: 5606690684347653403, guid: e677f0cb7020c93478f2f1c59eed8160,
         type: 3}
@@ -15082,29 +15087,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &1410337388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8862001939499711831, guid: a2af920cf0b76b14cbc8d353ca435147,
-    type: 3}
-  m_PrefabInstance: {fileID: 8862001940763812207}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1410337391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410337388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ConfineMode: 0
-  m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 748657524}
-  m_ConfineScreenEdges: 1
-  m_Damping: 0
 --- !u!4 &1420135450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 661117224837380048, guid: beae156a81c668c4eaa93c03a4d47f35,
@@ -16920,6 +16902,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130234443}
     m_Modifications:
+    - target: {fileID: 5606690684281088225, guid: e677f0cb7020c93478f2f1c59eed8160,
+        type: 3}
+      propertyPath: m_Name
+      value: CrawlerR
+      objectReference: {fileID: 0}
     - target: {fileID: 5606690684281088224, guid: e677f0cb7020c93478f2f1c59eed8160,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16974,11 +16961,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606690684281088225, guid: e677f0cb7020c93478f2f1c59eed8160,
-        type: 3}
-      propertyPath: m_Name
-      value: CrawlerR
       objectReference: {fileID: 0}
     - target: {fileID: 5606690684347653403, guid: e677f0cb7020c93478f2f1c59eed8160,
         type: 3}
@@ -20558,10 +20540,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5718279996590571832, guid: a2af920cf0b76b14cbc8d353ca435147,
+        type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 748657524}
     - target: {fileID: 8862001940139548662, guid: a2af920cf0b76b14cbc8d353ca435147,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.216794
+      value: 10.840237
       objectReference: {fileID: 0}
     - target: {fileID: 8862001940139548662, guid: a2af920cf0b76b14cbc8d353ca435147,
         type: 3}

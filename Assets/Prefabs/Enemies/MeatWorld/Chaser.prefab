@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 1088055690695111888}
   - component: {fileID: 1088055690695111916}
   - component: {fileID: 8850404556099112258}
+  - component: {fileID: 242111990487219568}
   m_Layer: 10
   m_Name: Chaser
   m_TagString: Enemy
@@ -410,3 +411,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockout: 0
   damage: 1
+--- !u!114 &242111990487219568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088055690695111894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0ad204d2e89554c9f749a6bf3fd268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

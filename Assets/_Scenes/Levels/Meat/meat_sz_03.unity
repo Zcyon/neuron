@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1732,6 +1732,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701928683}
     m_Modifications:
+    - target: {fileID: -1762354650506299963, guid: 47685232e2b9bef40bf34afc1d905245,
+        type: 3}
+      propertyPath: m_Name
+      value: CoffeeTable (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -5117570596102378945, guid: 47685232e2b9bef40bf34afc1d905245,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1786,11 +1791,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1762354650506299963, guid: 47685232e2b9bef40bf34afc1d905245,
-        type: 3}
-      propertyPath: m_Name
-      value: CoffeeTable (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5777542942536554618, guid: 47685232e2b9bef40bf34afc1d905245,
         type: 3}
@@ -6377,17 +6377,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2897065150012846608, guid: 57c1f424ca7620147b087d89319cd6a3,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2897065151147233948, guid: 57c1f424ca7620147b087d89319cd6a3,
         type: 3}
       propertyPath: m_SortingLayer
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3744920062469207486, guid: 57c1f424ca7620147b087d89319cd6a3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897065150012846608, guid: 57c1f424ca7620147b087d89319cd6a3,
         type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -6700,6 +6700,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701928683}
     m_Modifications:
+    - target: {fileID: -1762354650506299963, guid: 47685232e2b9bef40bf34afc1d905245,
+        type: 3}
+      propertyPath: m_Name
+      value: CoffeeTable (2)
+      objectReference: {fileID: 0}
     - target: {fileID: -5117570596102378945, guid: 47685232e2b9bef40bf34afc1d905245,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6754,11 +6759,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1762354650506299963, guid: 47685232e2b9bef40bf34afc1d905245,
-        type: 3}
-      propertyPath: m_Name
-      value: CoffeeTable (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5777542942536554618, guid: 47685232e2b9bef40bf34afc1d905245,
         type: 3}
@@ -7370,6 +7370,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701928683}
     m_Modifications:
+    - target: {fileID: -1762354650506299963, guid: 47685232e2b9bef40bf34afc1d905245,
+        type: 3}
+      propertyPath: m_Name
+      value: CoffeeTable
+      objectReference: {fileID: 0}
     - target: {fileID: -5117570596102378945, guid: 47685232e2b9bef40bf34afc1d905245,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7424,11 +7429,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1762354650506299963, guid: 47685232e2b9bef40bf34afc1d905245,
-        type: 3}
-      propertyPath: m_Name
-      value: CoffeeTable
       objectReference: {fileID: 0}
     - target: {fileID: 5777542942536554618, guid: 47685232e2b9bef40bf34afc1d905245,
         type: 3}

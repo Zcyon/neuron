@@ -22,8 +22,8 @@ public class ChasePlayer : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        chaseCountdown = chaseTimeout;
-        target = Director.Instance.playerObject.transform;
+        chaseCountdown = 0;
+        // target = Director.Instance.playerObject.transform;
     }
 
     void Update() {
@@ -39,7 +39,9 @@ public class ChasePlayer : MonoBehaviour {
 
     void OnEnable() {
         chaseCountdown = chaseTimeout;
-        target = Director.Instance.playerObject.transform;
+        if (Director.Instance.playerObject) {
+            target = Director.Instance.playerObject.transform;
+        }
     }
 
     private void Relocate() {
