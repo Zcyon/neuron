@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Other/title_screen.unity
     guid: b93a4aa51972783448f815f8cd146109
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_20.unity
+    guid: a8970a504f0956443ba94d09a4d345e1
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_31.unity
+    guid: ef0e27730c82ca748bb4436cfddf8191
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_32.unity
+    guid: 2d375a35408a67d4bafd473dbe99089c
   m_configObjects: {}

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ChasePlayer : MonoBehaviour {
 
+    [SerializeField] private Animator animator = null;
     [SerializeField] private BehaviorTree behaviorTree = default;
     [SerializeField] private bool lockXAxis = default;
     [SerializeField] private bool lockYAxis = default;
@@ -23,7 +24,6 @@ public class ChasePlayer : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         chaseCountdown = 0;
-        // target = Director.Instance.playerObject.transform;
     }
 
     void Update() {
@@ -33,11 +33,13 @@ public class ChasePlayer : MonoBehaviour {
         }
 
         if (chaseCountdown <= 0) {
+            animator.SetBool("isChasing", false);
             behaviorTree.SetVariableValue("isSeeingPlayer", false);
         }
     }
 
     void OnEnable() {
+        animator.SetBool("isChasing", true);
         chaseCountdown = chaseTimeout;
         if (Director.Instance.playerObject) {
             target = Director.Instance.playerObject.transform;
