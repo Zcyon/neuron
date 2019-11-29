@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6920133072932862854}
   - component: {fileID: -6965962667642267041}
   m_Layer: 0
-  m_Name: Spike
+  m_Name: SpikeUp
   m_TagString: HittableHazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockout: 1
-  damage: 0
+  damage: 1
 --- !u!61 &6920133072932862854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102,11 +102,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6875425855347782946}
     m_Modifications:
-    - target: {fileID: 2326827901306397672, guid: 36de18b3726089941908fda748e9dc80,
-        type: 3}
-      propertyPath: m_Name
-      value: Spike
-      objectReference: {fileID: 0}
     - target: {fileID: -4643155726121855257, guid: 36de18b3726089941908fda748e9dc80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -171,6 +166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326827901306397672, guid: 36de18b3726089941908fda748e9dc80,
+        type: 3}
+      propertyPath: m_Name
+      value: Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 6437531721940673314, guid: 36de18b3726089941908fda748e9dc80,

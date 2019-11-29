@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Levels/Meat/meat_32.unity
     guid: 2d375a35408a67d4bafd473dbe99089c
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_sz_30.unity
+    guid: 07df4425e52d0234aa67a547ca5e694f
   m_configObjects: {}

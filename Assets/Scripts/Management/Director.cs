@@ -34,8 +34,13 @@ public class Director : Singleton<Director> {
     public void DamagePlayer(int damage, bool knockout) {
         playerHealth.DamagePlayer(damage);
         playerHealth.KnockoutPlayer();
+        ui.ShowDamageVignette();
+        playerHealth.isImmune = true;
+        StartCoroutine(RestorePlayerVulnerability(1));
         if (knockout && !isRespawning) {
             StartCoroutine(RespawnPlayer(1));
+        } else if (!knockout && !isRespawning) {
+            StartCoroutine(HideDamageVignette(2));
         }
     }
 
@@ -78,9 +83,21 @@ public class Director : Singleton<Director> {
         SceneManager.LoadScene("_test_room");
     }
 
+    private IEnumerator HideDamageVignette(float timeout) {
+        float respawnCountdown = timeout;
+
+        while (respawnCountdown > 0) {
+            respawnCountdown -= Time.deltaTime;
+            yield return null;
+        }
+
+        ui.HideDamageVignette();
+    }
+
     private IEnumerator RespawnPlayer(float timeout) {
         isRespawning = true;
         float respawnCountdown = timeout;
+        ui.FadeOut();
 
         while (respawnCountdown > 0) {
             respawnCountdown -= Time.deltaTime;
@@ -90,7 +107,20 @@ public class Director : Singleton<Director> {
         if (respawnPosition != null) {
             playerMovement.MovePlayer(respawnPosition);
         }
+        ui.HideDamageVignette();
+        ui.FadeIn();
         isRespawning = false;
+    }
+
+    private IEnumerator RestorePlayerVulnerability(float timeout) {
+        float respawnCountdown = timeout;
+
+        while (respawnCountdown > 0) {
+            respawnCountdown -= Time.deltaTime;
+            yield return null;
+        }
+
+        playerHealth.isImmune = false;
     }
 
     private IEnumerator TransitionPlayer(string name, string targetObject, string entranceMode) {

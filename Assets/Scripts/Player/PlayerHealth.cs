@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
     [HideInInspector] public int health;
+    [HideInInspector] public bool isImmune;
     public int maxHealth;
 
     private PlayerMovement playerMovement;
@@ -14,10 +15,16 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     public void DamagePlayer(int damage) {
+        if (isImmune) {
+            return;
+        }
         health -= damage;
     }
 
     public void KnockoutPlayer() {
+        if (isImmune) {
+            return;
+        }
         playerMovement.DamageBounce();
     }
 }

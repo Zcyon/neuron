@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 581171573001535153}
   - component: {fileID: 3067183845748643103}
   - component: {fileID: 581171573001535152}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: SavePoint
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -225,11 +225,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7726125832004890378}
     m_Modifications:
-    - target: {fileID: -755965922556336476, guid: 0a3d41b0aed636e4e879c78d900d00a2,
+    - target: {fileID: -3759948398084939410, guid: 0a3d41b0aed636e4e879c78d900d00a2,
         type: 3}
-      propertyPath: m_Name
-      value: Model
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: -6843301413082048093, guid: 0a3d41b0aed636e4e879c78d900d00a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,11 +300,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -3759948398084939410, guid: 0a3d41b0aed636e4e879c78d900d00a2,
+    - target: {fileID: -755965922556336476, guid: 0a3d41b0aed636e4e879c78d900d00a2,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 6437531721940673314, guid: 0a3d41b0aed636e4e879c78d900d00a2,
     type: 3}

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour {
     public Animator transitionFadeAnimator;
+    public GameObject damageVignette;
     public GameObject pauseMenu;
     public GameObject titleScreen;
 
     void Start() {
+        HideDamageVignette();
         HidePauseMenu();
         HideTitleScreen();
     }
@@ -20,12 +22,20 @@ public class UIManager : MonoBehaviour {
         transitionFadeAnimator.SetTrigger("fadeOut");
     }
 
+    public void HideDamageVignette() {
+        damageVignette.SetActive(false);
+    }
+
     public void HidePauseMenu() {
         pauseMenu.SetActive(false);
     }
 
     public void HideTitleScreen() {
         titleScreen.SetActive(false);
+    }
+
+    public void ShowDamageVignette() {
+        damageVignette.SetActive(true);
     }
 
     public void ShowPauseMenu() {
