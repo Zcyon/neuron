@@ -6,6 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/_Scenes/Other/title_screen.unity
+    guid: b93a4aa51972783448f815f8cd146109
+  - enabled: 1
+    path: Assets/_Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_Scenes/Other/_test_room_sz_top.unity
+    guid: 8e72e71cee5fe4449bba5d47430a1799
+  - enabled: 1
+    path: Assets/_Scenes/Other/_test_room.unity
+    guid: 566353d851a2c3647bb5261048e9c942
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_02.unity
+    guid: b5f6f6a515769a84e854d884c6fe092f
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_sz_03.unity
+    guid: c5dbb6d177c429747b45a6f242d15df0
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_10.unity
+    guid: 62e9a1e728ef97b4d8aebd8f3122da26
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_11.unity
+    guid: 064737344fe602a4d894535b62c5e13e
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_12.unity
+    guid: a441de960b35b8641a73656189eefff0
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_21.unity
+    guid: d077efbebdb1a1941ae629fd07f78f42
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_20.unity
+    guid: a8970a504f0956443ba94d09a4d345e1
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_31.unity
+    guid: ef0e27730c82ca748bb4436cfddf8191
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_32.unity
+    guid: 2d375a35408a67d4bafd473dbe99089c
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Meat/meat_sz_30.unity
+    guid: 07df4425e52d0234aa67a547ca5e694f
   m_configObjects: {}

@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - TeleportTarget
+  - Checkpoint
+  - Walls
+  - Enemy
+  - Hazard
+  - FloorHazard
+  - HittableHazard
+  - World
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -16,8 +25,8 @@ TagManager:
   - 
   - Level
   - Player
-  - 
-  - 
+  - Enemies
+  - Remnants
   - 
   - 
   - 
@@ -41,4 +50,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Reflections
+    uniqueID: 1812557685
+    locked: 0
+  - name: BackProps
+    uniqueID: 2605050249
+    locked: 0
+  - name: Player
+    uniqueID: 457627691
+    locked: 0
+  - name: Props
+    uniqueID: 2275291649
+    locked: 0
+  - name: Foreground
+    uniqueID: 223886179
+    locked: 0
+  - name: UI
+    uniqueID: 2170148629
     locked: 0

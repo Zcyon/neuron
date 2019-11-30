@@ -73,5 +73,6 @@
     "csharpfixformat.style.spaces.insideEmptyBrackets": false,
     "editor.defaultFormatter": "Leopotam.csharpfixformat",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveTimeout": 1500
+    "editor.formatOnSaveTimeout": 1500,
+    "git.ignoreLimitWarning": true
 }

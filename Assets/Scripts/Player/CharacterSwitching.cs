@@ -32,11 +32,11 @@ public class CharacterSwitching : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButtonDown("LeftBumper")) {
+        if (Input.GetButtonDown(GameInput.L_BUMPER_BUTTON)) {
             ActivateCharacter(CharacterPositions.LEFT);
         }
 
-        if (Input.GetButtonDown("RightBumper")) {
+        if (Input.GetButtonDown(GameInput.R_BUMPER_BUTTON)) {
             ActivateCharacter(CharacterPositions.RIGHT);
         }
     }
