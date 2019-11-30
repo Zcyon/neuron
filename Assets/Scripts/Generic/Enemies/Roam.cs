@@ -16,9 +16,17 @@ public class Roam : MonoBehaviour {
     [SerializeField] private Transform hand = default;
     [SerializeField] private Transform eye = default;
 
-    void Start() { }
+    private Enemy enemy;
+
+    void Awake() {
+        enemy = GetComponent<Enemy>();
+    }
 
     void Update() {
+        if (enemy.isStunned) {
+            return;
+        }
+
         rb.velocity = new Vector2((transform.right * speed).x, rb.velocity.y);
         if (CheckCollisionsOnHand() || !CheckCollisionsOnFoot()) {
             transform.right = transform.right * -1;

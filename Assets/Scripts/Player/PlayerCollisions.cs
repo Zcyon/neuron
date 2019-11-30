@@ -21,7 +21,9 @@ public class PlayerCollisions : MonoBehaviour {
     public float collisionRange;
     public PlayerSFX playerSFX;
 
+    private bool canCollide = true;
     private CharacterSwitching characterSwitching;
+    [SerializeField] private Collider2D playerCollider = null;
 
     void Start() {
         characterSwitching = GetComponent<CharacterSwitching>();
@@ -34,7 +36,21 @@ public class PlayerCollisions : MonoBehaviour {
         UpdateAnimatorState();
     }
 
+    public void DisableColliders() {
+        canCollide = false;
+        playerCollider.enabled = false;
+    }
+
+    public void EnableColliders() {
+        canCollide = true;
+        playerCollider.enabled = true;
+    }
+
     private bool CheckGroundCollision() {
+        if (!canCollide) {
+            return false;
+        }
+
         Vector2 origin = feet.transform.position;
         Vector2 direction = Vector2.down;
         Vector2 size = new Vector2(Math.Abs(transform.localScale.x) / 3f, collisionRange);
@@ -59,6 +75,10 @@ public class PlayerCollisions : MonoBehaviour {
     }
 
     private void CheckWallCollisions(GameObject hand, string side = PlayerSides.LEFT) {
+        if (!canCollide) {
+            return;
+        }
+
         Vector2 origin = hand.transform.position;
         Vector2 direction = hand.transform.right;
         Vector2 size = new Vector2(Math.Abs(transform.localScale.y) / 4f, collisionRange);

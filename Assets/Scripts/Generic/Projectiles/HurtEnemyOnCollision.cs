@@ -7,6 +7,7 @@ public class HurtEnemyOnCollision : MonoBehaviour {
     public bool knockback;
     public float hitCooldown;
     public float knockbackMagnitude;
+    public GameObject particles;
     public int damage;
     public float stunDuration;
     public Transform raycastOrigin;
@@ -21,6 +22,13 @@ public class HurtEnemyOnCollision : MonoBehaviour {
         }
     }
 
+    private void InstantiateHitParticles(Transform transform, Vector3 direction) {
+        GameObject p = Instantiate(particles);
+        p.transform.position = transform.position;
+        p.transform.SetParent(Director.Instance._Dynamic.transform);
+        p.transform.forward = direction;
+    }
+
     public void OnTriggerEnter2D(Collider2D collider) {
         if (canHit && collider.tag == GameTags.ENEMY_TAG) {
             Vector2 origin = raycastOrigin.position;
@@ -30,9 +38,10 @@ public class HurtEnemyOnCollision : MonoBehaviour {
 
             if (hit.collider && hit.collider.tag == GameTags.ENEMY_TAG) {
                 enemy.DamageEnemy(damage, stunDuration);
-                enemy.Knockback(knockbackMagnitude);
+                enemy.Knockback(knockbackMagnitude, direction);
                 canHit = false;
                 hitCountdown = hitCooldown;
+                InstantiateHitParticles(hit.collider.transform, direction);
             }
         }
     }

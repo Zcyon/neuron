@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour {
+    public Animator saveFadeAnimator;
     public Animator transitionFadeAnimator;
     public GameObject damageVignette;
     public GameObject pauseMenu;
@@ -15,11 +16,15 @@ public class UIManager : MonoBehaviour {
     }
 
     public void FadeIn() {
-        transitionFadeAnimator.SetTrigger("fadeIn");
+        if (transitionFadeAnimator) {
+            transitionFadeAnimator.SetTrigger("fadeIn");
+        }
     }
 
     public void FadeOut() {
-        transitionFadeAnimator.SetTrigger("fadeOut");
+        if (transitionFadeAnimator) {
+            transitionFadeAnimator.SetTrigger("fadeOut");
+        }
     }
 
     public void HideDamageVignette() {
@@ -32,6 +37,10 @@ public class UIManager : MonoBehaviour {
 
     public void HideTitleScreen() {
         titleScreen.SetActive(false);
+    }
+
+    public void SaveFade() {
+        saveFadeAnimator.SetTrigger("save");
     }
 
     public void ShowDamageVignette() {

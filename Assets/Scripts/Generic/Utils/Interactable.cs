@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour {
 
     [SerializeField] private SpriteRenderer arrowRenderer = null;
     [SerializeField] private SpriteRenderer indicatorRenderer = null;
+    private bool interactableBumper;
     private int indicatorFadeFrames = 20;
 
     protected virtual void _OnTriggerEnter2D(Collider2D collider) { }
@@ -21,7 +22,8 @@ public class Interactable : MonoBehaviour {
 
     private void Update() {
         float verticalAxis = Input.GetAxisRaw(GameInput.VERTICAL_AXIS);
-        if (isTouchingPlayer && verticalAxis < 0) {
+        if (!interactableBumper && isTouchingPlayer && verticalAxis < -0.5f) {
+            interactableBumper = true;
             OnInteract();
         }
     }
@@ -57,6 +59,7 @@ public class Interactable : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collider) {
         if (collider.tag == GameTags.PLAYER_TAG) {
             isTouchingPlayer = false;
+            interactableBumper = false;
             StartCoroutine(IndicatorFadeOut());
             _OnTriggerExit2D(collider);
         }

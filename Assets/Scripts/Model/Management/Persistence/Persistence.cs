@@ -5,24 +5,31 @@ using UnityEngine;
 public class Persistence : Singleton<Persistence> {
     private PlayerPersistenceData playerPersistence;
 
-    private void Start() {
+    private void Awake() {
         playerPersistence = new PlayerPersistenceData();
         // PersistToDisk();
     }
 
     public void FetchPersistableData() {
+        if (playerPersistence == null) {
+            playerPersistence = new PlayerPersistenceData();
+        }
+
+        if (Director.Instance == null) {
+            return;
+        }
+
         playerPersistence.scene = Director.Instance.sceneTransitionTarget;
-        playerPersistence.health = Director.Instance.playerHealth.health;
+        playerPersistence.health = Director.Instance.playerHealth ? Director.Instance.playerHealth.health : 0;
         playerPersistence.portal = Director.Instance.sceneTransitionPlayerTarget;
         playerPersistence.entranceMode = Director.Instance.sceneTransitionPlayerEffect;
-
-        // print($"{Director.Instance.playerHealth.health} {Director.Instance.sceneTransitionPlayerTarget} {Director.Instance.sceneTransitionPlayerEffect}");
     }
 
-    public void LoadPersistenceProps() { }
+    public PlayerPersistenceData GetPersistableData() {
+        return playerPersistence;
+    }
 
     public void PersistToDisk() {
-        print($"{JsonUtility.ToJson(playerPersistence)}");
         PlayerPrefs.SetString(GamePlayerPrefs.PLAYER_DATA, JsonUtility.ToJson(playerPersistence));
     }
 

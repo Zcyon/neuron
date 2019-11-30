@@ -18,10 +18,12 @@ public class ChasePlayer : MonoBehaviour {
     [SerializeField] private Transform hand = default;
 
     private float chaseCountdown;
+    private Enemy enemy;
     private Rigidbody2D rb;
     private Transform target;
 
     void Start() {
+        enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
         chaseCountdown = 0;
     }
@@ -47,6 +49,10 @@ public class ChasePlayer : MonoBehaviour {
     }
 
     private void Relocate() {
+        if (enemy.isStunned) {
+            return;
+        }
+
         Vector2 direction;
 
         if (lockXAxis) {

@@ -125,6 +125,8 @@ MonoBehaviour:
   knockback: 0
   hitCooldown: 0.5
   knockbackMagnitude: 0
+  particles: {fileID: 8188785854626201373, guid: faad0610e6d7c0a4488b4f988662891d,
+    type: 3}
   damage: 1
   stunDuration: 0.1
   raycastOrigin: {fileID: 4946861309856109259}

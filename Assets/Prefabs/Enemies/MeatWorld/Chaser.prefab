@@ -274,6 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
+  remnantPrefab: {fileID: 1317489709663409324, guid: bc87d7e3bbba91a4094e93fb5c35a6d5,
+    type: 3}
   health: 3
 --- !u!114 &1088055690695111888
 MonoBehaviour:
@@ -421,6 +423,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1088055690695111889}
     m_Modifications:
+    - target: {fileID: -353036272610030585, guid: 0a326c85f25fdd14c8c4881f2f787cf2,
+        type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
     - target: {fileID: -6402398953858564432, guid: 0a326c85f25fdd14c8c4881f2f787cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -485,11 +492,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: -353036272610030585, guid: 0a326c85f25fdd14c8c4881f2f787cf2,
-        type: 3}
-      propertyPath: m_Name
-      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: -5708210263439895711, guid: 0a326c85f25fdd14c8c4881f2f787cf2,
         type: 3}

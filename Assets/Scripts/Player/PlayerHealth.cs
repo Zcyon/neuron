@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
-    [HideInInspector] public int health;
+    public int health;
     [HideInInspector] public bool isImmune;
     public int maxHealth;
 
     private PlayerMovement playerMovement;
+    private PlayerCollisions playerCollisions;
 
-    void Start() {
+    void Awake() {
         health = maxHealth;
+        playerCollisions = GetComponent<PlayerCollisions>();
         playerMovement = GetComponent<PlayerMovement>();
     }
 
@@ -19,6 +21,15 @@ public class PlayerHealth : MonoBehaviour {
             return;
         }
         health -= damage;
+
+        if (health <= 0) {
+            KillPlayer();
+        }
+    }
+
+    public void KillPlayer() {
+        playerCollisions.DisableColliders();
+        StartCoroutine(LoadGameTimeout());
     }
 
     public void KnockoutPlayer() {
@@ -26,5 +37,14 @@ public class PlayerHealth : MonoBehaviour {
             return;
         }
         playerMovement.DamageBounce();
+    }
+
+    public void RestoreHealth() {
+        health = maxHealth;
+    }
+
+    private IEnumerator LoadGameTimeout() {
+        yield return new WaitForSeconds(2);
+        Director.Instance.LoadGame();
     }
 }

@@ -38,7 +38,7 @@ public class UIHUD : MonoBehaviour {
 
         for (int i = 0; i < Director.Instance.playerHealth.maxHealth - currentHealth; ++i) {
             GameObject emptyHeart = Instantiate(emptyHeartPrefab);
-            emptyHeart.transform.parent = healthPanelTransform;
+            emptyHeart.transform.SetParent(healthPanelTransform);
         }
     }
 }

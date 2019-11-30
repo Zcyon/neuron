@@ -276,7 +276,7 @@ MonoBehaviour:
   playerSFX: {fileID: 6157847399288807598}
   canAttack: 0
   canSpecAttack: 0
-  attackSword: {fileID: 6796924317581995252, guid: d35a92ed285f0ad41b61a8715d2b0c4f,
+  attackSword: {fileID: 3738028039743818847, guid: 44521433f1786cc489248bfdd0d12e71,
     type: 3}
   playerMovement: {fileID: 6157847399288807586}
   cannonB: {fileID: 6157847397453862452}
@@ -726,6 +726,7 @@ MonoBehaviour:
   handR: {fileID: 6157847398252015613}
   collisionRange: 0.01
   playerSFX: {fileID: 6157847399288807598}
+  playerCollider: {fileID: 6157847399288807591}
 --- !u!114 &6157847399288807587
 MonoBehaviour:
   m_ObjectHideFlags: 0

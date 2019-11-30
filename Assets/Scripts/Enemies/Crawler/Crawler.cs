@@ -31,7 +31,6 @@ public class Crawler : Enemy {
         -270
     };
     private float rotationCountdown;
-    private Rigidbody2D rb;
 
     void Start() {
         if (!movingRight) {

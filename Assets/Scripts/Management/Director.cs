@@ -18,9 +18,10 @@ public class Director : Singleton<Director> {
     private bool isPaused;
     private bool isRespawning;
     private float sceneTransitionTimeout = 0.5f;
+    private string defaultScene = "meat_10";
     private string testString;
 
-    void Start() {
+    void Awake() {
         Scene scene = SceneManager.GetActiveScene();
         LoadDirectorProps();
     }
@@ -37,7 +38,7 @@ public class Director : Singleton<Director> {
         ui.ShowDamageVignette();
         playerHealth.isImmune = true;
         StartCoroutine(RestorePlayerVulnerability(1));
-        if (knockout && !isRespawning) {
+        if (knockout && !isRespawning && playerHealth.health > 0) {
             StartCoroutine(RespawnPlayer(1));
         } else if (!knockout && !isRespawning) {
             StartCoroutine(HideDamageVignette(2));
@@ -45,6 +46,7 @@ public class Director : Singleton<Director> {
     }
 
     public void GoToScene(string name, string targetObject = "JUSTANAVERAGEOBJECT", string entranceMode = "") {
+        Persistence.Instance.FetchPersistableData();
         ui.FadeOut();
         StartCoroutine(TransitionPlayer(name, targetObject, entranceMode));
     }
@@ -62,9 +64,18 @@ public class Director : Singleton<Director> {
         }
     }
 
+    public void LoadGame() {
+        PlayerPersistenceData data = Persistence.Instance.ReadFromDisk<PlayerPersistenceData>(GamePlayerPrefs.PLAYER_DATA);
+        if (data.scene == "" || data.scene == null) {
+            Director.Instance.GoToScene(defaultScene);
+        } else {
+            Director.Instance.GoToScene(data.scene, data.portal, data.entranceMode);
+        }
+    }
+
     public void PauseGame() {
         isPaused = !isPaused;
-        O_pause.Next(true);
+        O_pause.Next(isPaused);
 
         if (isPaused) {
             ui.ShowPauseMenu();
@@ -74,8 +85,14 @@ public class Director : Singleton<Director> {
     }
 
     public void SaveGame(bool playAnimation = false) {
+        ui.SaveFade();
+        playerHealth.RestoreHealth();
         Persistence.Instance.FetchPersistableData();
         Persistence.Instance.PersistToDisk();
+    }
+
+    public void StartGame() {
+        SceneManager.LoadScene(defaultScene);
     }
 
     public void SetString() {

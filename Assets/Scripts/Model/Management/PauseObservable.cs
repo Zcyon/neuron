@@ -3,4 +3,4 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseObservable : IObservable<bool> { }
+public class PauseObservable : Observable<bool> { }

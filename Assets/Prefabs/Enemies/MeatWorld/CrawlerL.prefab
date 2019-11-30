@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
+  remnantPrefab: {fileID: 6046098062190604392, guid: ce9c0296ab9e0a34394f70c70f6d8f16,
+    type: 3}
   health: 2
   movingRight: 0
   collisionRange: 0.05
@@ -296,11 +298,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3493626749003852371}
     m_Modifications:
-    - target: {fileID: 1387902460194753563, guid: 0f05b56b781e1fd47849d43f5d19570b,
-        type: 3}
-      propertyPath: m_Name
-      value: Model
-      objectReference: {fileID: 0}
     - target: {fileID: -833561152912185520, guid: 0f05b56b781e1fd47849d43f5d19570b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -356,6 +353,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1387902460194753563, guid: 0f05b56b781e1fd47849d43f5d19570b,
+        type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649140050944070107, guid: 0f05b56b781e1fd47849d43f5d19570b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b2ab1ae19da9d504a8178aae13f453a3, type: 2}
     - target: {fileID: -512539476610846515, guid: 0f05b56b781e1fd47849d43f5d19570b,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -366,11 +373,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1649140050944070107, guid: 0f05b56b781e1fd47849d43f5d19570b,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b2ab1ae19da9d504a8178aae13f453a3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 6437531721940673314, guid: 0f05b56b781e1fd47849d43f5d19570b,
     type: 3}
